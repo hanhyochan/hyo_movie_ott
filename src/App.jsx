@@ -1,25 +1,31 @@
-import { Suspense, lazy } from 'react'
+import { useState, useEffect } from 'react'
 import './App.scss'
-import { Routes, Route } from 'react-router-dom'
-const Main = lazy(() => import("./pages/Main.jsx"))
-const Detail = lazy(() => import("./pages/Detail.jsx"))
+import movieListData from './assets/data/movieListData.json'
+import MovieCard from './component/MovieCard'
+import { Route, Routes } from 'react-router-dom'
+import MovieDetail from './pages/MovieDetail'
 
 function App() {
-  // const dispatch = useDispatch()
+  const [movieList, setMovieList] = useState([])
 
-  // useEffect(() => {
-  //   dispatch(fetchMultiplePoketmonById(151))
-  // }, [])
+  const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+
+  useEffect(() => {
+    setMovieList(movieListData.results.map((el) => ({
+      id: el.id,
+      img: BASE_IMAGE_URL + el.poster_path,
+      title: el.title,
+      voteAverage: el.vote_average
+    })))
+  }, [])
 
   return (
-    <>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path={'/'} element={<Main />} />
-            <Route path={'/detail'} element={<Detail />} />
-          </Routes>
-        </Suspense>
-    </>
+      <Routes>
+        <Route path='/' element={<div className='container'>
+          {movieList.map((el) => <MovieCard key={el.id} movieList={el} />)}
+        </div>} />
+        <Route path='/details' element={<MovieDetail />} />
+      </Routes >
   )
 }
 
