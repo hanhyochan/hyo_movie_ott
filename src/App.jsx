@@ -34,6 +34,7 @@ function App() {
   return (
     <>
     <NavBar />
+    ff
       <Routes>
         <Route path='/' element={<div className='container'>
           {movieList.map((el) => <MovieCard key={el.id} movieList={el} />)}

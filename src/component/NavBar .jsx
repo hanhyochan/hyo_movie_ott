@@ -6,7 +6,7 @@ const NavBar  = () => {
 
     return (
         <div className='navBarContainer'>
-            <span>OZ MOVIE</span>
+            <span onClick={() => navigate(`/`)}>OZ MOVIE</span>
             <div className='navBarBtnContainer'>
                 <button className='modeBtn'>🌙</button>
                 <button className='authBtn' onClick={() => navigate(`/signIn`)}>로그인</button>
