@@ -5,7 +5,7 @@ export const movieCard = ({ movieList }) => {
     const navigate = useNavigate()
 
     return (
-        <div className='cardContainer' onClick={() => navigate('/details')}>
+        <div className='cardContainer' onClick={() => navigate(`/details/${movieList.id}`)}>
             <img className='cardImg' src={movieList.img} alt={movieList.title}/>
             <div className='cardContainer_cardInfo'>
                 <h3>{movieList.title}</h3>
