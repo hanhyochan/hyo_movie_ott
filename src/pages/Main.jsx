@@ -50,7 +50,7 @@ function Main() {
     return (
         <div className='container'>
             {movieList.map(el => <MovieCard key={el.id} movieList={el} />)}
-            <button onClick={() => setPage(prev => prev + 1)}>더보기</button>
+            <button onClick={() => setPage(prev => prev + 1)}>더보기 </button>
         </div>
     )
 }
