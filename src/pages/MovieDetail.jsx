@@ -48,7 +48,7 @@ const Detail = () => {
     }, []);
 
     const genres = movie.genres ? movie.genres.map((el) => el.name) : []
-    console.log(movie.voteAverage)
+ 
     return (
         <>
             <div className='blackBg'></div>

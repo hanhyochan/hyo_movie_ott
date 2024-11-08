@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import './../App.scss'
 import MovieCard from '../component/MovieCard'
-// const API_KEY = import.meta.env.VITE_API_KEY
-const API_AUTH_TOKEN = import.meta.env.API_AUTH_TOKEN
+const VITE_API_AUTH_TOKEN = import.meta.env.VITE_API_AUTH_TOKEN
 
 function Main() {
     const [movieList, setMovieList] = useState([])
@@ -18,7 +17,7 @@ function Main() {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
-                    Authorization: `Bearer ${API_AUTH_TOKEN}`
+                    Authorization: `Bearer ${VITE_API_AUTH_TOKEN}`
                 }
             };
 
@@ -32,17 +31,6 @@ function Main() {
                         voteAverage: el.vote_average
                     }))])
                 })
-
-            // fetch(`${MOVIE_URL}?api_key=${API_KEY}&language=ko-KR&page=${page}`)
-            //     .then((res) => res.json())
-            //     .then((res) => {
-            //         setMovieList(prev => [...prev, ...res.results.map((el) => ({
-            //             id: el.id,
-            //             img: BASE_IMAGE_URL + el.poster_path,
-            //             title: el.title,
-            //             voteAverage: el.vote_average
-            //         }))])
-            //     })
         };
         fetchData();
     }, [page]);
