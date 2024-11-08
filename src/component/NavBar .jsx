@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
 const VITE_API_AUTH_TOKEN = import.meta.env.VITE_API_AUTH_TOKEN
 import MovieCard from './MovieCard';
+import { getRegExp } from 'korean-regexp';
 
 const NavBar = () => {
     const navigate = useNavigate()
@@ -13,6 +14,12 @@ const NavBar = () => {
     const MOVIE_URL = 'https://api.themoviedb.org/3/search/movie';
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
+    // const handleInputOnchange = (e) => {
+    //     const value = e.target.value
+    //     const reg = getRegExp(value)
+    //     setSearchTerm(reg.source)
+    // }
+    
     useEffect(() => {
 
         const options = {
@@ -40,7 +47,7 @@ const NavBar = () => {
             .catch(err => console.error(err));
     }, [debouncedQuery])
 
-    console.log(searchedMovie)
+    console.log(debouncedQuery)
 
     return (
         <>
