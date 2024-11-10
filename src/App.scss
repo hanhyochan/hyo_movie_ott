@@ -7,6 +7,7 @@ body {
     height: 100vh;
     display: flex;
     position: relative;
+    // background-color: black;
 }
 
 .container {
@@ -21,6 +22,7 @@ body {
     width: 250px;
     height: 420px;
     border-radius: 5px;
+    background-color: white;
 
     .cardImg {
         border-radius: 4px 4px 0 0;

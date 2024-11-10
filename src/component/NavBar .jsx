@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
 const VITE_API_AUTH_TOKEN = import.meta.env.VITE_API_AUTH_TOKEN
 import MovieCard from './MovieCard';
-import { getRegExp } from 'korean-regexp';
+// import { getRegExp } from 'korean-regexp';
 
 const NavBar = () => {
     const navigate = useNavigate()
@@ -37,7 +37,6 @@ const NavBar = () => {
             // `${MOVIE_URL}?include_adult=false&language=en-US&page=1`, options)
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 if (debouncedQuery) {
                     setSearchMovie(res.results.map((el) => ({
                         id: el.id,

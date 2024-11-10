@@ -1,12 +1,13 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './../App.scss'
 import MovieCard from '../component/MovieCard'
+import useInfiniteScroll from '../hooks/useInfiniteScroll'
 const VITE_API_AUTH_TOKEN = import.meta.env.VITE_API_AUTH_TOKEN
 
 function Main() {
     const [movieList, setMovieList] = useState([])
-    const [page, setPage] = useState(1)
-    const target = useRef(null)
+    const [page, setPage] = useState(1);
+    const target = useInfiniteScroll(() => setPage(prev => prev + 1))
 
     const MOVIE_URL = 'https://api.themoviedb.org/3/movie/popular';
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -34,51 +35,6 @@ function Main() {
         };
         fetchData();
     }, [page]);
-
-    // const checkIntersect = (entries) => {
-    //     entries.forEach(entry => {
-    //         if (entry.isIntersecting) {
-    //             setPage(prev => prev + 1)
-    //         }
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(checkIntersect, {
-    //         root: null,
-    //         rootMargin: '0px',
-    //         threshold: 0.5
-    //     })
-
-    //     const target = document.querySelector('#targetElement');
-    //     if (target) observer.observe(target);
-
-    //     return () => {
-    //         if (target) observer.unobserve(target);
-    //     };
-    // }, [])
-
-    // 특정요소, 특정요소상태, 콜백함수
-
-    const callback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setPage(prev => prev + 1)
-            }
-        })
-    }
-
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-    }
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(callback, options)
-        if (target.current) observer.observe(target.current)
-        return () => observer.unobserve(target.current)
-    })
 
     return (
         <div className='container'>
