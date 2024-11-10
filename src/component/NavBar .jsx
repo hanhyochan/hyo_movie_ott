@@ -15,13 +15,11 @@ const NavBar = () => {
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
     // const handleInputOnchange = (e) => {
-    //     const value = e.target.value
-    //     const reg = getRegExp(value)
-    //     setSearchTerm(reg.source)
+    //     setSearchTerm(e)
     // }
-    
-    useEffect(() => {
+    // console.log(debouncedQuery)
 
+    useEffect(() => {
         const options = {
             method: 'GET',
             headers: {
@@ -29,10 +27,17 @@ const NavBar = () => {
                 Authorization: `Bearer ${VITE_API_AUTH_TOKEN}`
             }
         };
+        //debouncedQuery를 정규식으로 만들어서 무비네임중 match하는 것만 갖고 온다.
 
-        fetch(`${MOVIE_URL}?include_adult=false&language=en-US&page=1&query=${debouncedQuery}`, options)
+        // const reg = getRegExp(debouncedQuery)
+        // console.log(reg)
+
+        fetch(
+            `${MOVIE_URL}?include_adult=false&language=en-US&page=1&query=${debouncedQuery}`, options)
+            // `${MOVIE_URL}?include_adult=false&language=en-US&page=1`, options)
             .then(res => res.json())
             .then(res => {
+                console.log(res)
                 if (debouncedQuery) {
                     setSearchMovie(res.results.map((el) => ({
                         id: el.id,
@@ -47,15 +52,16 @@ const NavBar = () => {
             .catch(err => console.error(err));
     }, [debouncedQuery])
 
-    console.log(debouncedQuery)
-
     return (
         <>
             <div className='navBarContainer'>
                 <span onClick={() => navigate(`/`)}>OZ MOVIE</span>
                 <div className='navBarBtnContainer'>
                     <button className='modeBtn'>🌙</button>
-                    <input className='searchInput' type="text" onChange={(e) => setSearchTerm(e.target.value)} /><button>제출</button>
+                    <input className='searchInput' type="text"
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        // onChange={(e) => handleInputOnchange(e.target.value)}
+                    /><button>제출</button>
                     <button className='authBtn' onClick={() => navigate(`/signIn`)}>로그인</button>
                     <button className='authBtn' onClick={() => navigate(`/signUp`)}>회원가입</button>
                 </div>
