@@ -240,6 +240,18 @@ body {
         border-bottom: 1px solid white;
     }
 
+    @media (max-width: 768px) {
+        .searchInput {
+            width: 500px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .cardContainer {
+            width: 250px; 
+        }
+    }
+
     .searchedMovies{
         display: flex;
         margin-top: 20px;
