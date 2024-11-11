@@ -107,7 +107,6 @@ body {
         width: 300px;
     }
 
-
     .movieInfo {
         width: 700px;
         height: 300px;
@@ -242,7 +241,7 @@ body {
 
 .searchBarContainer {
     position: fixed;
-    width: 100vw;
+    width: 100%;
     margin-top: 50px;
     padding: 50px 0 50px 0;
     background-color: rgba(0, 0, 0, 0.8);
@@ -258,7 +257,15 @@ body {
         padding: 20px;
         background-color: transparent;
         border-bottom: 1px solid white;
+        @media (max-width: 768px) {
+            width: 500px;
+        }
+    
+        @media (max-width: 480px) {
+            width: 250px;
+        }
     }
+
 
     .searchedMovies {
         display: flex;
