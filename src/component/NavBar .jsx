@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
 import SearchBar from './searchBar';
 import useMode from '../hooks/useMode';
+import AuthBtn from './authBtn';
+import Profile from './Profile';
 const VITE_API_AUTH_TOKEN = import.meta.env.VITE_API_AUTH_TOKEN
+import { useAuth } from '../context/AuthContext';
 
 const NavBar = () => {
     const navigate = useNavigate()
@@ -12,6 +15,7 @@ const NavBar = () => {
     const [searchedMovie, setSearchMovie] = useState([])
     const [showSearchInput, setShowSearchInput] = useState(false)
     const [isDarkMode, setIsDarkMode] = useMode()
+    const { isSignIn } = useAuth();
 
     const MOVIE_URL = 'https://api.themoviedb.org/3/search/movie';
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -61,8 +65,7 @@ const NavBar = () => {
                             X
                         </button>
                     ) : <button onClick={() => setShowSearchInput(true)}>🔍</button>}
-                    <button className='authBtn' onClick={() => navigate(`/signIn`)}>로그인</button>
-                    <button className='authBtn' onClick={() => navigate(`/signUp`)}>회원가입</button>
+                    {isSignIn ? <Profile /> : <AuthBtn />}
                 </div>
             </div>
             <div style={{ display: `flex` }}>

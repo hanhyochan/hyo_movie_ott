@@ -6,12 +6,14 @@ import SearchMovie from './pages/SearchMovie'
 import NavBar from './component/NavBar '
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
 
   return (
     <div>
-      <NavBar />
+      <AuthProvider>
+        <NavBar />
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/details/:movieId' element={<MovieDetail />} />
@@ -19,6 +21,7 @@ function App() {
           <Route path='/signIn' element={<SignIn />} />
           <Route path='/signUp' element={<SignUp />} />
         </Routes >
+      </AuthProvider>
     </div>
   )
 }

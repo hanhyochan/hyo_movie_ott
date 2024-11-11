@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import supabase from '../supabaseConfig';
 import { useNavigate } from "react-router-dom"
 import useVaild from '../hooks/useVaild';
+import { useAuth } from '../context/AuthContext';
 
-const SignIn = () => {
+const SignIn = ({ isSignIn }) => {
     const navigate = useNavigate()
     const [userInfo, setUserInfo] = useState({
         email: '',
@@ -11,6 +12,7 @@ const SignIn = () => {
     })
     const vaildText = useVaild(userInfo)
     const [successMessage] = useState('로그인이 완료되었습니다')
+    const { setIsSignIn } = useAuth();
 
     const handleChange = (e) => {
         setUserInfo({
@@ -33,7 +35,7 @@ const SignIn = () => {
 
     const login = async (userInfo) => {
         const email = userInfo.email
-        const password = userInfo.password 
+        const password = userInfo.password
 
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
@@ -43,6 +45,7 @@ const SignIn = () => {
 
             if (data && data.user && data.user.email === email) {
                 console.log(successMessage);
+                setIsSignIn(true);
                 navigate('/');
             } else {
                 alert('이메일 또는 비밀번호가 일치하지 않습니다.');
