@@ -62,8 +62,14 @@ const NavBar = () => {
                 <span onClick={() => navigate(`/`)}>OZ MOVIE</span>
                 <div className='navBarBtnContainer'>
                     <button onClick={() => setIsDarkMode(prev => !prev)}>🌙</button>
-                    <button onClick={() => setShowSearchInput(prev => !prev)}>🔍</button>
-
+                    {showSearchInput ? (
+                        <button onClick={() => {
+                            setShowSearchInput(false);
+                            setSearchMovie(null);
+                        }}>
+                            X
+                        </button>
+                    ) : <button onClick={() =>setShowSearchInput(true)}>🔍</button>}
                     <button className='authBtn' onClick={() => navigate(`/signIn`)}>로그인</button>
                     <button className='authBtn' onClick={() => navigate(`/signUp`)}>회원가입</button>
                 </div>

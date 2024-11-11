@@ -200,14 +200,14 @@ body {
 .searchBarContainer{
     position: fixed;
     width: 100vw;
-    height:35vh;
+    margin-top: 50px;
+    padding: 50px 0 50px 0;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 
     .searchInput{
         width: 900px;
@@ -217,13 +217,10 @@ body {
         border-bottom: 1px solid white;
     }
 
-}
-.searchedMovies{
-    position: fixed;
-    display: flex;
-    margin-top: 20px;
-    z-index: 5;
-    top: 200px;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 30px;
+    .searchedMovies{
+        display: flex;
+        margin-top: 20px;
+        z-index: 5;
+        top: 200px;
+    }
 }

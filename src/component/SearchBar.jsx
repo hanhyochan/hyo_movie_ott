@@ -20,19 +20,14 @@ const SearchBar = ({ setSearchTerm, searchedMovie, setSearchMovie, setShowSearch
                         onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder='영화제목을 입력하세요.'
                     />
-                    <button onClick={handleInput}>찾아보기</button>
-                    <button onClick={() => {
-                        setShowSearchInput(false)
-                        setSearchMovie(null)
-                    }
-                    } >취소하기</button>
+                    <button onClick={handleInput}>🔍</button>
                 </div>
-            </div>
             <div className='searchedMovies'>
                 {searchedMovie ? searchedMovie.map((el) =>
                     <MovieCard key={el.id} movieList={el} setShowSearchInput={setShowSearchInput}
                     />
                 ) : null}
+            </div>
             </div>
         </>
     );
