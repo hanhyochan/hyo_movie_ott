@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: black;
 }
 
@@ -37,17 +37,13 @@ body {
     background-color: white;
 
     @media (max-width: 768px) {
-        .cardContainer {
-            width: 200px;
-            height: 350px;
-        }
+        width: 150px;
+        height: 220px;
     }
-    
+
     @media (max-width: 480px) {
-        .cardContainer {
-            width: 150px; 
-            height: 280px;
-        }
+        width: 50px;
+        height: 100px;
     }
 
     .cardImg {
@@ -105,11 +101,11 @@ body {
 
     @media (max-width: 768px) {
         width: 700px;
-}
+    }
 
-@media (max-width: 480px) {
-    width: 300px;
-}
+    @media (max-width: 480px) {
+        width: 300px;
+    }
 
 
     .movieInfo {
@@ -119,11 +115,11 @@ body {
         flex-direction: column;
 
         @media (max-width: 768px) {
-                width: 300px;
+            width: 300px;
         }
-        
+
         @media (max-width: 480px) {
-                width: 100px; 
+            width: 100px;
         }
 
         .infoContainer {
@@ -236,7 +232,7 @@ body {
 
 }
 
-.searchBarContainer{
+.searchBarContainer {
     position: fixed;
     width: 100vw;
     margin-top: 50px;
@@ -248,7 +244,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    .searchInput{
+    .searchInput {
         width: 900px;
         height: 50px;
         padding: 20px;
@@ -256,19 +252,7 @@ body {
         border-bottom: 1px solid white;
     }
 
-    @media (max-width: 768px) {
-        .searchInput {
-            width: 500px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .cardContainer {
-            width: 250px; 
-        }
-    }
-
-    .searchedMovies{
+    .searchedMovies {
         display: flex;
         margin-top: 20px;
         z-index: 5;
