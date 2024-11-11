@@ -3,6 +3,7 @@ import supabase from '../supabaseConfig';
 import { useNavigate } from "react-router-dom"
 import useVaild from '../hooks/useVaild';
 import { useAuth } from '../context/AuthContext';
+import KakaoLoginButton from '../component/KakaoLoginButton';
 
 const SignIn = ({ isSignIn }) => {
     const navigate = useNavigate()
@@ -71,6 +72,7 @@ const SignIn = ({ isSignIn }) => {
                     {vaildText.password}
                 </div>
                 <button className='signBtn' type='button' onClick={handleSubmit}>Sign in</button>
+                <KakaoLoginButton />
             </form>
         </div>
     );
