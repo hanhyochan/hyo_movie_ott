@@ -33,7 +33,7 @@ const SignIn = () => {
 
     const login = async (userInfo) => {
         const email = userInfo.email
-        const password = userInfo.password
+        const password = userInfo.password 
 
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
