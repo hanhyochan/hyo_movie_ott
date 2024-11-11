@@ -200,7 +200,7 @@ body {
 .searchBarContainer{
     position: fixed;
     width: 100vw;
-    height: 80vh;
+    height:35vh;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     display: flex;
@@ -217,8 +217,13 @@ body {
         border-bottom: 1px solid white;
     }
 
-    .searchedMovies{
-        display: flex;
-        margin-top: 20px;
-    }
+}
+.searchedMovies{
+    position: fixed;
+    display: flex;
+    margin-top: 20px;
+    z-index: 5;
+    top: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
 }

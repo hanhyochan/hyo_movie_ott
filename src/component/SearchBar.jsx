@@ -26,13 +26,13 @@ const SearchBar = ({ setSearchTerm, searchedMovie, setSearchMovie, setShowSearch
                         setSearchMovie(null)
                     }
                     } >취소하기</button>
-                    <div className='searchedMovies'>
-                        {searchedMovie ? searchedMovie.map((el) =>
-                            <MovieCard key={el.id} movieList={el} setShowSearchInput={setShowSearchInput}
-                            />
-                        ) : null}
-                    </div>
                 </div>
+            </div>
+            <div className='searchedMovies'>
+                {searchedMovie ? searchedMovie.map((el) =>
+                    <MovieCard key={el.id} movieList={el} setShowSearchInput={setShowSearchInput}
+                    />
+                ) : null}
             </div>
         </>
     );

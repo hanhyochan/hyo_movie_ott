@@ -68,7 +68,6 @@ const NavBar = () => {
                     <button className='authBtn' onClick={() => navigate(`/signUp`)}>회원가입</button>
                 </div>
             </div>
-
             <div style={{ display: `flex` }}>
                 {showSearchInput ? (
                     <>
