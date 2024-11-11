@@ -103,12 +103,28 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
+    @media (max-width: 768px) {
+        width: 700px;
+}
+
+@media (max-width: 480px) {
+    width: 300px;
+}
+
 
     .movieInfo {
         width: 700px;
         height: 300px;
         padding: 20px;
         flex-direction: column;
+
+        @media (max-width: 768px) {
+                width: 300px;
+        }
+        
+        @media (max-width: 480px) {
+                width: 100px; 
+        }
 
         .infoContainer {
             display: flex;
