@@ -5,11 +5,11 @@ const useVaild = (userInfo) => {
         name: '',
         email: '',
         password: '',
-        password: ''
+        confirmPassword: ''
     })
 
     useEffect(() => {
-        if (userInfo.name !== '' && userInfo.name.length <= 1) {
+        if (userInfo.name && userInfo.name !== '' && userInfo.name.length <= 1) {
             setVaildText((prev) => ({ ...prev, name: '이름을 2글자 이상 입력해주세요.' }));
         } else {
             setVaildText((prev) => ({ ...prev, name: '' }));
@@ -33,7 +33,7 @@ const useVaild = (userInfo) => {
     }, [userInfo.password])
 
     useEffect(() => {
-        if (userInfo.confirmPassword !== '' && userInfo.confirmPassword !== userInfo.password) {
+        if (userInfo.confirmPassword && userInfo.confirmPassword !== '' && userInfo.confirmPassword !== userInfo.password) {
             setVaildText((prev) => ({ ...prev, confirmPassword: '비밀번호가 맞지 않습니다.' }));
         } else {
             setVaildText((prev) => ({ ...prev, confirmPassword: '' }));

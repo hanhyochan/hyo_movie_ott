@@ -12,8 +12,8 @@ const SignUp = () => {
         confirmPassword: '',
     })
     const vaildText = useVaild(userInfo)
-    const [successMessage, setSuccessMessage] = useState('회원가입이 완료되었습니다')
-    console.log(vaildText)
+    const [successMessage] = useState('회원가입이 완료되었습니다')
+
     const handleChange = (e) => {
         setUserInfo({
             ...userInfo,
@@ -22,14 +22,14 @@ const SignUp = () => {
     }
 
     const handleSubmit = async () => {
-        // 유효성 검사 메시지가 모두 빈 문자열인지 확인
-        const isValid = Object.values(vaildText).every((message) => message === "");
+        const isValid = Object.values(userInfo).some((value) => value === "")
+        const isValidText = Object.values(vaildText).every((value) => value === "");
 
-        if (isValid) {
-            await signUpFuc(userInfo);  // signUpFuc는 비동기 함수이므로 await 사용
-            navigate('/');  // 회원가입 성공 후 페이지 이동
+        if (!isValid && isValidText) {
+            await signUpFuc(userInfo);
+            navigate('/');
         } else {
-            alert(`정보를 다시 입력해주십시오.`)
+            alert(`정보를 다시 확인해주십시오.`)
             return;
         }
     };
