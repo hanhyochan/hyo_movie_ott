@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
 import SearchBar from './searchBar';
+import useMode from '../hooks/useMode';
 const VITE_API_AUTH_TOKEN = import.meta.env.VITE_API_AUTH_TOKEN
 
 const NavBar = () => {
@@ -10,17 +11,7 @@ const NavBar = () => {
     const debouncedQuery = useDebounce(searchTerm, 500);
     const [searchedMovie, setSearchMovie] = useState([])
     const [showSearchInput, setShowSearchInput] = useState(false)
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
-    useEffect(() => {
-        if (isDarkMode) {
-            document.body.style.backgroundColor = 'black';
-            document.body.style.color = 'white';
-        } else {
-            document.body.style.backgroundColor = 'white';
-            document.body.style.color = 'black';
-        }
-    }, [isDarkMode]);
+    const [isDarkMode, setIsDarkMode] = useMode()
 
     const MOVIE_URL = 'https://api.themoviedb.org/3/search/movie';
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -69,7 +60,7 @@ const NavBar = () => {
                         }}>
                             X
                         </button>
-                    ) : <button onClick={() =>setShowSearchInput(true)}>🔍</button>}
+                    ) : <button onClick={() => setShowSearchInput(true)}>🔍</button>}
                     <button className='authBtn' onClick={() => navigate(`/signIn`)}>로그인</button>
                     <button className='authBtn' onClick={() => navigate(`/signUp`)}>회원가입</button>
                 </div>
