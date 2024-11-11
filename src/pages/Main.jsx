@@ -38,7 +38,7 @@ function Main() {
 
     return (
         <div className='container'>
-            {movieList.map(el => <MovieCard key={el.id} movieList={el} />)}
+            {movieList.map((el, idx) => <MovieCard key={el.id + idx} movieList={el} />)}
             <div ref={target} ></div>
         </div>
     )

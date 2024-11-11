@@ -8,6 +8,8 @@ const useMode = () => {
         return saveMode !== null ? saveMode : false
     });
 
+    saveLocalStorage('nowMode', isDarkMode)
+
     useEffect(() => {
         if (isDarkMode) {
             saveLocalStorage('nowMode', isDarkMode)

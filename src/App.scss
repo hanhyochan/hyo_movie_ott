@@ -20,15 +20,6 @@ body {
     gap: 30px;
 }
 
-// @media screen (max-width: 400px) {
-//     .container {
-//         margin: 50px;
-//         display: flex;
-//         flex-wrap: wrap;
-//         gap: 30px;
-//     }
-// }
-
 .cardContainer {
     border: 1px solid gray;
     width: 250px;
@@ -221,6 +212,7 @@ body {
                 border: 1px solid gray;
                 height: 40px;
                 padding: 10px;
+                color: black;
             }
 
         }
