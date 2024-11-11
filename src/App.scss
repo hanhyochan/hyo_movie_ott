@@ -194,6 +194,14 @@ body {
     border-radius: 5px;
     padding: 30px;
 
+    @media (max-width: 768px) {
+        width: 300px;
+    }
+
+    @media (max-width: 480px) {
+        width: 150px;
+    }
+
     h3 {
         font-size: 30px;
         font-weight: 600;
