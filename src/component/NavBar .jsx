@@ -8,7 +8,7 @@ const NavBar = () => {
     const navigate = useNavigate()
     const [searchTerm, setSearchTerm] = useState(null)
     const debouncedQuery = useDebounce(searchTerm, 500);
-    const [searchedMovie, setSearchMovie] = useState(null)
+    const [searchedMovie, setSearchMovie] = useState([])
     const [showSearchInput, setShowSearchInput] = useState(false)
     const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -27,7 +27,7 @@ const NavBar = () => {
 
     useEffect(() => {
         if (!debouncedQuery) {
-            setSearchMovie(null)
+            setSearchMovie([])
         } else {
             const options = {
                 method: 'GET',
@@ -38,7 +38,7 @@ const NavBar = () => {
             };
 
             fetch(
-                `${MOVIE_URL}?include_adult=false&language=en-US&page=1&query=${debouncedQuery}`, options)
+                `${MOVIE_URL}?include_adult=false&language=ko-KR&page=1&query=${debouncedQuery}`, options)
                 .then(res => res.json())
                 .then(res => {
                     if (debouncedQuery) {
@@ -61,7 +61,7 @@ const NavBar = () => {
             <div className='navBarContainer'>
                 <span onClick={() => navigate(`/`)}>OZ MOVIE</span>
                 <div className='navBarBtnContainer'>
-                    <button onClick={() => setIsDarkMode(prev => !prev)}>🌙</button>
+                    <button onClick={() => setIsDarkMode(prev => !prev)}>{isDarkMode ? '☀️' : '🌙'}</button>
                     {showSearchInput ? (
                         <button onClick={() => {
                             setShowSearchInput(false);
