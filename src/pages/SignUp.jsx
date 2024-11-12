@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import supabase from '../supabaseConfig';
 import { useNavigate } from "react-router-dom"
 import useVaild from '../hooks/useVaild';
+// import { useAuth } from '../context/AuthContext';
 
 const SignUp = () => {
     const navigate = useNavigate()
+    // const { session } = useAuth();
     const [userInfo, setUserInfo] = useState({
         name: '',
         email: '',
@@ -27,13 +29,13 @@ const SignUp = () => {
 
         if (!isValid && isValidText) {
             await signUpFuc(userInfo);
+            // setIsSignIn(true)
             navigate('/');
         } else {
             alert(`정보를 다시 확인해주십시오.`)
             return;
         }
     };
-
 
     const signUpFuc = async (userInfo) => {
         const name = userInfo.name

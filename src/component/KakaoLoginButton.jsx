@@ -1,13 +1,13 @@
 import React from 'react';
 import supabase from '../supabaseConfig';
-import { useAuth } from '../context/AuthContext';
+// import { useAuth } from '../context/AuthContext';
 
 const KakaoLoginButton = () => {
-  const { setIsSignIn } = useAuth();
+  // const { setIsSignIn } = useAuth();
 
   const handleClick = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'kakao',
+      provider: 'kakao', 
     });
   
     if (error) {
@@ -15,8 +15,8 @@ const KakaoLoginButton = () => {
       return;
     }
   
-    console.log('Kakao login data:', data);
-    setIsSignIn(true)
+    console.log('Kakao login data:', data);  
+    // setIsSignIn(true) 
   }
   
 

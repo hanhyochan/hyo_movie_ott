@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAuth } from '../context/AuthContext';
+// import { useAuth } from '../context/AuthContext';
 import supabase from '../supabaseConfig';
 
 const Profile = () => {
-    const { setIsSignIn } = useAuth();
+    // const { setIsSignIn } = useAuth();
 
     const handleLogout = async () => {
         const { error } = await supabase.auth.signOut();
@@ -14,7 +14,7 @@ const Profile = () => {
         }
 
         console.log('로그아웃 성공');
-        setIsSignIn(false);
+        // setIsSignIn(false);
     };
 
     return (

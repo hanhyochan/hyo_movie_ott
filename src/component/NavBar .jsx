@@ -15,8 +15,8 @@ const NavBar = () => {
     const [searchedMovie, setSearchMovie] = useState([])
     const [showSearchInput, setShowSearchInput] = useState(false)
     const [isDarkMode, setIsDarkMode] = useMode()
-    const { isSignIn } = useAuth();
-console.log(isSignIn)
+    const { user } = useAuth();
+
     const MOVIE_URL = 'https://api.themoviedb.org/3/search/movie';
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -65,7 +65,7 @@ console.log(isSignIn)
                             X
                         </button>
                     ) : <button onClick={() => setShowSearchInput(true)}>🔍</button>}
-                    {isSignIn ? <Profile /> : <AuthBtn />}
+                    {user ? <Profile /> : <AuthBtn />}
                 </div>
             </div>
             <div style={{ display: `flex` }}>
