@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
-import SearchBar from './searchBar.jsx';
+import SearchBar from 'hyo_movie_ott/src/component/SearchBar.jsx';
 import useMode from '../hooks/useMode';
 import AuthBtn from './authBtn';
 import Profile from './Profile';
