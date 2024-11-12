@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Main from './pages/Main'
 import MovieDetail from './pages/MovieDetail'
 import SearchMovie from './pages/SearchMovie'
-import NavBar from './component/NavBar '
+import NavBar from './component/NavBar'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import { AuthProvider } from './context/AuthContext';
