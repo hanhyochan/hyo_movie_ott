@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
 import SearchBar from './SearchBar';
 import useMode from '../hooks/useMode';
-import AuthBtn from './authBtn';
+import AuthBtn from './AuthBtn';
 import Profile from './Profile';
 const VITE_API_AUTH_TOKEN = import.meta.env.VITE_API_AUTH_TOKEN
 import { useAuth } from '../context/AuthContext';
