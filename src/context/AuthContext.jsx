@@ -5,7 +5,7 @@ const SessionContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-console.log({user})
+
     useEffect(() => {
         const getSession = async () => {
             const { data: { session } } = await supabase.auth.getSession();
@@ -23,6 +23,8 @@ console.log({user})
                 }
             }
         );
+
+        console.log(subscription)
 
         return () => {
             subscription.unsubscribe();
