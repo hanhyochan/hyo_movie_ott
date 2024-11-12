@@ -1,6 +1,6 @@
 import supabase from '../supabaseConfig';
 
-export async function signInWithKakao() {
+export async function handleClick() {
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'kakao',
