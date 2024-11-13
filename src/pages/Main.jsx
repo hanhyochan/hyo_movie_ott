@@ -12,7 +12,7 @@ function Main() {
     const MOVIE_URL = 'https://api.themoviedb.org/3/movie/popular';
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
-    useEffect(() => {
+    useEffect(() => { 
         const fetchData = async () => {
             const options = {
                 method: 'GET',
