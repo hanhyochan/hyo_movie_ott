@@ -22,11 +22,15 @@ const Main = () => {
 
     return (
         <div className='container'>
-            <TopRatedMovieSwiper />
+            
+            <h1>평점 좋은 영화</h1>  
+                <TopRatedMovieSwiper />
+            
             <h1>인기 영화</h1>
             <div className='popularMovieContainer'>
                 {popularMovies.map((el, idx) => <MovieCard key={el.id + idx} movies={el} />)}
             </div>
+            
             <div ref={target}></div>
         </div>
     );
