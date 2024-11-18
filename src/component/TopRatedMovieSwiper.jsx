@@ -28,11 +28,10 @@ const TopRatedMovieSwiper = () => {
                 // autoplay={{ delay: 4000 }}
                 spaceBetween={40}
                 breakpoints={{
-                    320: { slidesPerView: 1 },
-                    480: { slidesPerView: 2 },
-                    768: { slidesPerView: 3 },
-                    1024: { slidesPerView: 4 },
-                    // 1280: { slidesPerView: 5 },
+                    1: { slidesPerView: 1 },
+                    500: { slidesPerView: 2 },
+                    800: { slidesPerView: 3 },
+                    1301: { slidesPerView: 4 },
                 }}
             >
                 {topRatedMovies.map((el) => (
