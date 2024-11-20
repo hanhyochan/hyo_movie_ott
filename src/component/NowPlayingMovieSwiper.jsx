@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
-import { getTopRatedMovies } from '../api/MoiveApi';
+import { getNowPlayingMovies } from '../api/MoiveApi';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper/modules";
 import 'swiper/css';
 
-const TopRatedMovieSwiper = () => {
+const NowPlayingMovieSwiper = () => {
 
-    const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
 
     useEffect(() => {
-        const fetchTopRatedMovies = async () => {
-            const topRatedMovies = await getTopRatedMovies();
-            setTopRatedMovies(prev => [...prev, ...topRatedMovies]);
+        const fetchNowPlayingMovies = async () => {
+            const nowPlayingMovies = await getNowPlayingMovies();
+            setNowPlayingMovies(prev => [...prev, ...nowPlayingMovies]);
         };
-        fetchTopRatedMovies();
+        fetchNowPlayingMovies();
     }, []);
 
     return (
@@ -34,7 +34,7 @@ const TopRatedMovieSwiper = () => {
                     1301: { slidesPerView: 4 },
                 }}
             >
-                {topRatedMovies.map((el) => (
+                {nowPlayingMovies.map((el) => (
                     <SwiperSlide className='black' key={el.id}>
                         <MovieCard movies={el} />
                     </SwiperSlide>
@@ -44,4 +44,4 @@ const TopRatedMovieSwiper = () => {
     );
 };
 
-export default TopRatedMovieSwiper;
+export default NowPlayingMovieSwiper;

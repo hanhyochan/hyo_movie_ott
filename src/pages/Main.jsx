@@ -4,6 +4,7 @@ import MovieCard from '../component/MovieCard';
 import useInfiniteScroll from '../hooks/useInfiniteScroll';
 import { PageContext } from '../context/pageContext';
 import TopRatedMovieSwiper from '../component/TopRatedMovieSwiper';
+import NowPlayingMovieSwiper from '../component/NowPlayingMovieSwiper';
 
 const Main = () => {
     const [popularMovies, setPopularMovies] = useState([])
@@ -22,8 +23,11 @@ const Main = () => {
 
     return (
         <div className='container'>
+
+            <h1>현재 상영중인 영화</h1>
+            <NowPlayingMovieSwiper />
             
-            <h1>평점 좋은 영화</h1>  
+            <h1>평점 높은 영화</h1>  
                 <TopRatedMovieSwiper />
             
             <h1>인기 영화</h1>
