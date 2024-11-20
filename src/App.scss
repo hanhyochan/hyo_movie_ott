@@ -3,7 +3,16 @@
 }
 
 body {
-    padding: 70px 50px;
+    margin: 0;
+    position: relative;
+}
+
+.navBarContainer {
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 60px;
+    z-index: 99;
 }
 
 @mixin moiveVoteAverageMixin {
@@ -21,6 +30,8 @@ body {
 @mixin movieImg {
     width: 100%;
     object-fit: cover;
+    border-radius: 10px;
+    border: 0.01px solid gray;
 }
 
 @mixin movieInfoContainer {
@@ -39,6 +50,8 @@ body {
 }
 
 .container {
+    padding: 70px 50px;
+
     .topRatedMovieContainer {
         .moiveVoteAverage {
             @include moiveVoteAverageMixin;
@@ -96,6 +109,44 @@ body {
             .movieInfoContainer {
                 @include movieInfoContainer;
             }
+        }
+    }
+
+}
+
+.detailsContainer {
+    .bgImg {
+        z-index: 1;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        position: relative;
+        filter: brightness(50%);
+    }
+
+    .movieInfoContainer {
+        z-index: 2;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        width: 70vw;
+        gap: 50px;
+
+        .poster {
+            width: 300px;
+            height: 450px;
+            border-radius: 10px;
+        }
+
+        .movieInfo {
+            height: 450px;
+            border: 1px solid white;
+            border-radius: 10px;
         }
     }
 }

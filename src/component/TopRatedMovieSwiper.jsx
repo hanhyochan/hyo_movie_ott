@@ -12,8 +12,8 @@ const TopRatedMovieSwiper = () => {
 
     useEffect(() => {
         const fetchTopRatedMovies = async () => {
-            const topRatedMovies = await getTopRatedMovies();
-            setTopRatedMovies(prev => [...prev, ...topRatedMovies]);
+            const topRatedMoviesData = await getTopRatedMovies();
+            setTopRatedMovies(prev => [...prev, ...topRatedMoviesData]);
         };
         fetchTopRatedMovies();
     }, []);

@@ -11,12 +11,10 @@ const Main = () => {
     const { page, setPage } = useContext(PageContext)
     const target = useInfiniteScroll(() => setPage(prev => prev + 1))
 
-
-
     useEffect(() => {
         const fetchPopularMovies = async () => {
-            const popularMovies = await getPopularMovies(page)
-            setPopularMovies(prev => [...prev, ...popularMovies])
+            const popularMoviesData = await getPopularMovies(page)
+            setPopularMovies(prev => [...prev, ...popularMoviesData])
         }
         fetchPopularMovies()
     }, [page])

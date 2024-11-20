@@ -1,19 +1,39 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { selectedMovies } from '../api/MoiveApi';
+import { getSelectedMovie } from '../api/MoiveApi';
+const VITE_IMAGE_URL = import.meta.env.VITE_IMAGE_URL
 
 const MovieDetail = () => {
     const { movieId } = useParams()
-    console.log(movieId)
+    const [selectedMoive, setSelectedMovie] = useState([])
 
     useEffect(() => {
-        console.log(1)
-        selectedMovies()
+        const fetchSelectedMovie = async () => {
+            const selectedMovieData = await getSelectedMovie(movieId)
+            setSelectedMovie(selectedMovieData)
+        }
+        fetchSelectedMovie()
     }, [])
 
     return (
-        <div>
-            <h1>d안녕</h1>
+        <div className='detailsContainer'>
+            <img className="bgImg" src={`${VITE_IMAGE_URL}${selectedMoive.backdrop_path}`} alt={`${selectedMoive.title}`} />
+
+            <div className='movieInfoContainer'>
+                <img className="poster" src={`${VITE_IMAGE_URL}${selectedMoive.poster_path}`} alt={`${selectedMoive.title}`} />
+                <div className='movieInfo'>
+                    <div className='infoContainer'>
+                        <h1>{selectedMoive.title}</h1>
+                        <div className='line'>
+                            <span>{selectedMoive.releaseDate} 개봉</span>
+                            {/* <span>{genres}</span> */}
+                        </div>
+                        <span>{selectedMoive.overview}</span>
+                    </div>
+                    <span className='voteAverage'>평점: {selectedMoive.vote_average}점</span>
+                </div>
+
+            </div>
         </div>
     );
 };
