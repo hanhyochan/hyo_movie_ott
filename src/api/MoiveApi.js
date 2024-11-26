@@ -4,7 +4,7 @@ const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 export const getNowPlayingMovies = async () => {
     try {
-        const response = await axios.get(`${VITE_API_BASE_URL}/now_playing`,
+        const response = await axios.get(`${VITE_API_BASE_URL}/movie/now_playing`,
             {
                 params: {
                     api_key: VITE_API_KEY,
@@ -20,7 +20,7 @@ export const getNowPlayingMovies = async () => {
 
 export const getTopRatedMovies = async () => {
     try {
-        const response = await axios.get(`${VITE_API_BASE_URL}/top_rated`,
+        const response = await axios.get(`${VITE_API_BASE_URL}/movie/top_rated`,
             {
                 params: {
                     api_key: VITE_API_KEY,
@@ -36,7 +36,7 @@ export const getTopRatedMovies = async () => {
 
 export const getPopularMovies = async (page) => {
     try {
-        const response = await axios.get(`${VITE_API_BASE_URL}/popular`,
+        const response = await axios.get(`${VITE_API_BASE_URL}/movie/popular`,
             {
                 params: {
                     api_key: VITE_API_KEY,
@@ -53,7 +53,7 @@ export const getPopularMovies = async (page) => {
 
 export const getSelectedMovie = async (movieId) => {
     try {
-        const response = await axios.get(`${VITE_API_BASE_URL}/${movieId}?`,
+        const response = await axios.get(`${VITE_API_BASE_URL}/movie/${movieId}?`,
             {
                 params: {
                     api_key: VITE_API_KEY,
@@ -64,5 +64,22 @@ export const getSelectedMovie = async (movieId) => {
         return response.data
     } catch (error) {
         console.error('영화 상세 정보 패치에 실패했습니다.', error)
+    }
+}
+
+export const getSearchedMovies = async (query) => {
+    try {
+        const response = await axios.get(`${VITE_API_BASE_URL}/search/movie`,
+            {
+                params: {
+                    api_key: VITE_API_KEY,
+                    language: 'ko-KR',
+                    query: query
+                }
+            }
+        )
+        return response.data.results
+    } catch (error) {
+        console.error('찾으시는 영화 패치에 실패했습니다.', error)
     }
 }

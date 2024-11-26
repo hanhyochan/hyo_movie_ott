@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
+import { saveLocalStorage } from '../utils/saveLocalStorage';
 
 const useTheme = (theme) => {
 
     useEffect(() => {
         if (theme) {
-            console.log(1)
+            saveLocalStorage('theme', theme)
             document.body.style.background = 'white'
-            document.body.style.color = 'black';
+            document.body.style.color = '#1f1c23';
         } else if (!theme) {
-            console.log(2)
-            document.body.style.backgroundColor = 'black';
+            saveLocalStorage('theme', theme)
+            document.body.style.backgroundColor = '#1f1c23';
             document.body.style.color = 'white';
         }
 
