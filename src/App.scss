@@ -19,11 +19,42 @@ body {
     padding: 0 50px;
     border-bottom: 1px solid gray;
     
-
     span {
-        font-size: 25px;
+        font-size: 23px;
         font-weight: 600;
         color: white;
+        cursor: pointer;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .btn {
+            color: white;
+            margin-top: 7px;
+            background-color: transparent;
+            border: none;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: white;
+                cursor: pointer;
+            }
+        }
+
+        .authBtn {
+            background-color: rgb(139, 15, 255);
+            font-size: 15px;
+            color: white;
+            border: none;
+            font-weight: 500;
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+        }
     }
 }
 
@@ -54,7 +85,7 @@ body {
         grid-template-columns: repeat(5, 1fr);
         gap: 40px;
 
-        .movieCardContainer{
+        .movieCardContainer {
             color: white;
         }
     }
@@ -192,6 +223,51 @@ body {
             height: 450px;
             border: 1px solid white;
             border-radius: 10px;
+        }
+    }
+}
+
+.authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .authFormContainer{
+        margin-top: 60px;
+        width: 40%;
+        padding: 30px;
+
+        h3 {
+            font-size: 30px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .inputContainer {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input {
+                border: 1px solid gray;
+                height: 40px;
+                padding: 10px;
+                color: black;
+            }
+        }
+
+        .signBtn {
+            width: 100%;
+            background-color: rgb(206, 47, 255);
+            font-size: 15px;
+            font-weight: 500;
+            height: 40px;
+            border-radius: 5px;
+            color: white;
+            margin-top: 40px;
+            cursor: pointer;
         }
     }
 }
